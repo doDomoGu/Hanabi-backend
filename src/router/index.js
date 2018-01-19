@@ -20,8 +20,8 @@ import Layout from '../views/layout/Layout'
   }
 **/
 export const constantRouterMap = [
-  { path: '/login', component: () => _import('@/views/login/index'), hidden: true },
-  { path: '/404', component: () => _import('@/views/404'), hidden: true },
+  { path: '/login', component: _import('login/index'), hidden: true },
+  { path: '/404', component: _import('404'), hidden: true },
 
   {
     path: '/',
@@ -31,7 +31,7 @@ export const constantRouterMap = [
     hidden: true,
     children: [{
       path: 'dashboard',
-      component: () => _import('@/views/dashboard/index')
+      component: _import('dashboard/index')
     }]
   },
 
@@ -45,13 +45,13 @@ export const constantRouterMap = [
       {
         path: 'index',
         name: 'User',
-        component: () => _import('@/views/user/index'),
+        component: _import('user/index'),
         meta: { title: 'User', icon: 'user' }
       }/* ,
       {
         path: 'tree',
         name: 'Tree',
-        component: () => _import('@/views/tree/index'),
+        component: _import('tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
       }*/
     ]
@@ -67,13 +67,13 @@ export const constantRouterMap = [
       {
         path: 'table',
         name: 'Table',
-        component: () => _import('@/views/table/index'),
+        component: _import('table/index'),
         meta: { title: 'Table', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
-        component: () => _import('@/views/tree/index'),
+        component: _import('tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
       }
     ]
@@ -86,7 +86,7 @@ export const constantRouterMap = [
       {
         path: 'index',
         name: 'Form',
-        component: () => _import('@/views/form/index'),
+        component: _import('form/index'),
         meta: { title: 'Form', icon: 'form' }
       }
     ]

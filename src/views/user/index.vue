@@ -3,22 +3,22 @@
     <el-table :data="list" v-loading.body="listLoading" element-loading-text="Loading" border fit highlight-current-row>
       <el-table-column align="center" label='ID' width="95">
         <template slot-scope="scope">
-          {{scope.$index}}
+          {{scope.row.id}}
         </template>
       </el-table-column>
-      <el-table-column label="Title">
+      <el-table-column label="用户名">
         <template slot-scope="scope">
-          {{scope.row.title}}
+          {{scope.row.username}}
         </template>
       </el-table-column>
-      <el-table-column label="Author" width="110" align="center">
+      <el-table-column label="昵称" width="110" align="center">
         <template slot-scope="scope">
-          <span>{{scope.row.author}}</span>
+          <span>{{scope.row.nickname}}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Pageviews" width="110" align="center">
+      <el-table-column label="性别" width="110" align="center">
         <template slot-scope="scope">
-          {{scope.row.pageviews}}
+          {{scope.row.gender==1?'男':'女'}}
         </template>
       </el-table-column>
       <el-table-column class-name="status-col" label="Status" width="110" align="center">
@@ -63,7 +63,7 @@ export default {
     fetchData() {
       this.listLoading = true
       getList().then(response => {
-        this.list = response.data.items
+        this.list = response
         this.listLoading = false
       })
     }

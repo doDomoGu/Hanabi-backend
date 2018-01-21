@@ -39,14 +39,14 @@ export const constantRouterMap = [
     path: '/user',
     component: Layout,
     redirect: '/user/index',
-    name: 'User',
-    meta: { title: 'Example', icon: 'example' },
+    // name: 'User',
+    // meta: { title: '用户', icon: 'example' },
     children: [
       {
         path: 'index',
         name: 'User',
         component: _import('user/index'),
-        meta: { title: 'User', icon: 'user' }
+        meta: { title: '用户', icon: 'user' }
       }/* ,
       {
         path: 'tree',

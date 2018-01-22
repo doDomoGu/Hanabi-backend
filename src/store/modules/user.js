@@ -30,9 +30,14 @@ const user = {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
-          const data = response.data
-          setToken(data.token)
-          commit('SET_TOKEN', data.token)
+          // const data = response.data
+          setToken(response.token)
+          commit('SET_TOKEN', response.token)
+          /* if (response.userId === 10001) {
+            commit('SET_ROLES', ['admin'])
+            commit('SET_NAME', response.userInfo.nickname)
+            commit('SET_AVATAR', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif')
+          }*/
           resolve()
         }).catch(error => {
           reject(error)
@@ -44,10 +49,16 @@ const user = {
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getInfo(state.token).then(response => {
-          const data = response.data
+          /* const data = response.data
           commit('SET_ROLES', data.roles)
           commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
+          commit('SET_AVATAR', data.avatar)*/
+
+          if (response.userId === 10001) {
+            commit('SET_ROLES', ['admin'])
+            commit('SET_NAME', response.userInfo.nickname)
+            commit('SET_AVATAR', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif')
+          }
           resolve(response)
         }).catch(error => {
           reject(error)

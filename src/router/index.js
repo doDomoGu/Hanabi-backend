@@ -72,6 +72,27 @@ export const constantRouterMap = [
   },
 
   {
+    path: '/game',
+    component: Layout,
+    redirect: '/game/index',
+    meta: { title: '游戏', icon: 'example' },
+    children: [
+      {
+        path: 'index',
+        name: 'Game',
+        component: _import('game/index'),
+        meta: { title: '进行中的', icon: 'user' }
+      },
+      {
+        path: 'history',
+        name: 'GameHistory',
+        component: _import('game/history'),
+        meta: { title: '历史记录', icon: 'user' }
+      }
+    ]
+  },
+
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',

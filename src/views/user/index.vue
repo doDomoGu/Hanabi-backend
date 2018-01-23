@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { getList } from '@/api/userList'
+import { getList } from '@/api/user'
 
 export default {
   data() {

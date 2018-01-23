@@ -58,6 +58,20 @@ export const constantRouterMap = [
   },
 
   {
+    path: '/room',
+    component: Layout,
+    redirect: '/room/index',
+    children: [
+      {
+        path: 'index',
+        name: 'Room',
+        component: _import('room/index'),
+        meta: { title: '房间', icon: 'user' }
+      }
+    ]
+  },
+
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',

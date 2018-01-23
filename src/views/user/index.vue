@@ -6,30 +6,36 @@
           {{scope.row.id}}
         </template>
       </el-table-column>
-      <el-table-column label="用户名">
+      <el-table-column label="用户名" width="180" align="center">
         <template slot-scope="scope">
           {{scope.row.username}}
         </template>
       </el-table-column>
-      <el-table-column label="昵称" width="110" align="center">
+      <el-table-column label="昵称" width="180" align="center">
         <template slot-scope="scope">
           <span>{{scope.row.nickname}}</span>
         </template>
       </el-table-column>
       <el-table-column label="性别" width="110" align="center">
         <template slot-scope="scope">
-          {{scope.row.gender==1?'男':'女'}}
+          {{scope.row.gender==1?'男':(scope.row.gender==2?'女':'N/A')}}
         </template>
       </el-table-column>
-      <el-table-column class-name="status-col" label="Status" width="110" align="center">
+      <el-table-column class-name="status-col" label="状态" width="110" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{scope.row.status}}</el-tag>
+          <!--<el-tag :type="scope.row.status | statusFilter">{{scope.row.status}}</el-tag>-->
+          {{scope.row.status==1?'正常':'禁用'}}
         </template>
       </el-table-column>
-      <el-table-column align="center" prop="created_at" label="Display_time" width="200">
+      <el-table-column align="center" prop="created_at" label="创建时间" width="200">
         <template slot-scope="scope">
-          <i class="el-icon-time"></i>
-          <span>{{scope.row.display_time}}</span>
+          <!--<i class="el-icon-time"></i>-->
+          <span>{{scope.row.created_at}}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" align="center" >
+        <template slot-scope="scope">
+
         </template>
       </el-table-column>
     </el-table>

@@ -12,12 +12,12 @@ export function login(username, password) {
   })
 }
 
-export function getInfo(token) {
+export function getInfo(accessToken) {
   return request({
     // url: '/user/info',
     url: '/auth',
     method: 'get',
-    params: { 'accessToken': token }
+    params: { accessToken }
   })
 }
 

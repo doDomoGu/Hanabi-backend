@@ -1,9 +1,9 @@
 import request from '@/utils/request'
 
-export function getList(token) {
+export function getList(accessToken) {
   return request({
     url: '/user',
     method: 'get',
-    params: { token }
+    params: { accessToken }
   })
 }

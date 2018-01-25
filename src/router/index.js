@@ -75,11 +75,12 @@ export const constantRouterMap = [
     path: '/game',
     component: Layout,
     redirect: '/game/index',
+    name: 'Game',
     meta: { title: '游戏', icon: 'example' },
     children: [
       {
         path: 'index',
-        name: 'Game',
+        name: 'GameList',
         component: _import('game/index'),
         meta: { title: '进行中的', icon: 'user' }
       },
@@ -97,6 +98,7 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
+    hidden: true,
     meta: { title: 'Example', icon: 'example' },
     children: [
       {
@@ -117,6 +119,7 @@ export const constantRouterMap = [
   {
     path: '/form',
     component: Layout,
+    hidden: true,
     children: [
       {
         path: 'index',
